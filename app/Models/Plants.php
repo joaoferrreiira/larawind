@@ -10,52 +10,33 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
-{
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use HasTeams;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+use Carbon;
 
+class Plants extends Authenticatable
+{
+    use HasFactory;
+    protected $table = 'plants';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-        'profile_photo_url',
+        'name', 
+        'scientic_name', 
+        'images', 
+        'height', 
+        'legend', 
+        'location', 
+        'history', 
+        'age', 
+        'characteristics', 
+        'id_tipo_planta', 
+        'id_tipo_folha', 
+        'id_tipo_flor', 
+        'id_tipo_fruto', 
+        'id_tipo_habitat' 
     ];
 
     public function getCreatedAtAttribute($date)
@@ -67,4 +48,5 @@ class User extends Authenticatable
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
     }
+
 }
