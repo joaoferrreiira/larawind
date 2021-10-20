@@ -2,44 +2,47 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
-use Laravel\Sanctum\HasApiTokens;
+
+use Illuminate\Database\Eloquent\Model;
 
 use Carbon;
 
-class Plants extends Authenticatable
+class Plants extends Model
 {
-    use HasFactory;
     protected $table = 'plants';
-    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'scientic_name', 
-        'images', 
-        'height', 
-        'legend', 
-        'location', 
-        'history', 
-        'age', 
-        'characteristics', 
-        'id_tipo_planta', 
-        'id_tipo_folha', 
-        'id_tipo_flor', 
-        'id_tipo_fruto', 
-        'id_tipo_habitat' 
+        'name',
+        'scientific_name',
+        'images',
+        'legend',
+        'origin',
+        'foliage_duration',
+        'flowering_season',
+        'fruit_season',
+        'height',
+        'native_area',
+        'longevity',
+        'characteristics',
+        'curiosities',
     ];
 
-    public function getCreatedAtAttribute($date)
+    public function types()
+    {
+        return $this->belongsToMany(\App\Models\PlantsType::class, 'plants_has_plants_types', 'plants_id', 'plants_types_id');
+    }
+
+    public function coordinates()
+    {
+        return $this->belongsTo(\App\Models\PlantsCoordinates::class, 'plants_id', 'id');
+    }
+
+    /* public function getCreatedAtAttribute($date)
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
     }
@@ -47,6 +50,5 @@ class Plants extends Authenticatable
     public function getUpdatedAtAttribute($date)
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
-    }
-
+    } */
 }

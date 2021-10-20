@@ -1,7 +1,7 @@
 <x-app-layout title="Definições">
     <div class="container grid px-6 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        Definições
+            Definições
         </h2>
 
         <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
@@ -10,32 +10,44 @@
             <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
                     <thead>
-                        <tr
-                            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3">Termos de Uso</th>
-                            <th class="px-4 py-3">Política de Privacidade</th>
-                            <th class="px-4 py-3">Ações</th>
+                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3">termos</th>
+                            <th class="px-4 py-3">politícas de privacidade</th>
+                            <th class="px-4 py-3">ações</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                        @foreach($settings as $p)
-                            <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm overflow-ellipsis overflow-hidden truncate max-w-xl">
-                                    {{$p->terms}}
-                                </td>
-                                <td class="px-4 py-3 text-sm overflow-ellipsis overflow-hidden truncate max-w-xl">
-                                    {{$p->privacy_politics}}
-                                </td>
-                                <td class="px-4 py-3 text-xs">
-                                    <a href="/definicoes/{{$p->id}}/edit" class="flex align-center justify-center px-2 py-px text-xs font-medium leading-5 text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-md active:bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:shadow-outline-yellow" style="max-width:fit-content">
-                                        Editar
-                                    </a>
-                                </td>
-                            </tr>
+                        @foreach($settings as $s)
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-4 py-3 text-sm overflow-ellipsis overflow-hidden truncate max-w-xl">
+                                {{$s->terms}}
+                            </td>
+                            <td class="px-4 py-3 text-sm overflow-ellipsis overflow-hidden truncate max-w-xl">
+                                {{$s->privacy_politics}}
+                            </td>
+                            <td class="px-4 py-3 text-xs flex flex-row">
+                                <a href="/definicoes/{{$s->id}}/edit" class="flex align-center justify-center px-2 py-px text-xs font-medium leading-5 text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-md active:bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:shadow-outline-yellow" style="max-width:fit-content">
+                                    Editar
+                                </a>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
+            <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+                <span class="flex items-center col-span-3">
+                    A mostrar {{$settings->count()}} de {{$settings->total()}}.
+                </span>
+                <span class="col-span-2"></span>
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                    <nav aria-label="Table navigation">
+                        {{$settings->links()}}
+                    </nav>
+                </span>
+            </div>
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </x-app-layout>

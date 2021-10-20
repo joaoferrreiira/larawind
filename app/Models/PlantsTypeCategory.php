@@ -2,22 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 use Carbon;
 
-class PlantsTypeCategory extends Authenticatable
+class PlantsTypeCategory extends Model
 {
-    use HasFactory;
     protected $table = 'plants_types_categories';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +19,12 @@ class PlantsTypeCategory extends Authenticatable
         'name'
     ];
 
-    public function getCreatedAtAttribute($date)
+    public function types()
+    {
+        return $this->hasMany(\App\Models\PlantsType::class, 'plants_types_categories_id', 'id');
+    }
+
+    /* public function getCreatedAtAttribute($date)
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
     }
@@ -35,6 +32,5 @@ class PlantsTypeCategory extends Authenticatable
     public function getUpdatedAtAttribute($date)
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
-    }
-
+    } */
 }

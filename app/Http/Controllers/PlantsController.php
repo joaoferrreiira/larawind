@@ -3,85 +3,120 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plants;
+use App\Models\PlantsType;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Schema;
 
 class PlantsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
+    public function index()
     {
-        $plants = Plants::get();
+        $plants = Plants::paginate(10);
+
         return view('plants.index', compact('plants'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $plants_type = PlantsType::where('plants_types_categories_id', 1)->select('id', 'name')->get();
+        $leaf_type = PlantsType::where('plants_types_categories_id', 2)->select('id', 'name')->get();
+        $flower_type = PlantsType::where('plants_types_categories_id', 3)->select('id', 'name')->get();
+        $fruit_type = PlantsType::where('plants_types_categories_id', 4)->select('id', 'name')->get();
+        $habitat_type = PlantsType::where('plants_types_categories_id', 5)->select('id', 'name')->get();
+
+        return view('plants.create', compact('plants_type', 'leaf_type', 'flower_type', 'fruit_type', 'habitat_type'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $plant = new Plants;
+        $plant->name = $request->name;
+        $plant->scientific_name = $request->scientific_name;
+        $plant->images = $request->images;
+        $plant->legend = $request->legend;
+        $plant->origin = $request->origin;
+        $plant->foliage_duration = $request->foliage_duration;
+
+        $plant->flowering_season =  $request->flowering_season_from . '-' . $request->flowering_season_to;
+
+        $plant->fruit_season = $request->fruit_season_from . '-' . $request->fruit_season_to;
+
+        $plant->height = $request->height;
+        $plant->native_area = $request->native_area;
+        $plant->longevity = $request->longevity;
+        $plant->characteristics = $request->characteristics;
+        $plant->curiosities = $request->curiosities;
+
+        $plant->save();
+
+        $plantt = Plants::orderBy('id', 'desc')->first();
+
+        $plantt->types()->attach($request->plant_type);
+        $plantt->types()->attach($request->leaf_type);
+        $plantt->types()->attach($request->flower_type);
+        $plantt->types()->attach($request->fruit_type);
+        $plantt->types()->attach($request->habitat_type);
+
+        return redirect('plantas');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Plants  $plants
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Plants $plants)
+    public function show($id)
     {
-        //
+        return redirect('plantas');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Plants  $plants
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Plants $plants)
+    public function edit($id)
     {
-        //
+        $plant = Plants::find($id);
+
+        $plants_type = PlantsType::where('plants_types_categories_id', 1)->select('id', 'name')->get();
+        $leaf_type = PlantsType::where('plants_types_categories_id', 2)->select('id', 'name')->get();
+        $flower_type = PlantsType::where('plants_types_categories_id', 3)->select('id', 'name')->get();
+        $fruit_type = PlantsType::where('plants_types_categories_id', 4)->select('id', 'name')->get();
+        $habitat_type = PlantsType::where('plants_types_categories_id', 5)->select('id', 'name')->get();
+
+        return view('plants.edit', compact('plant', 'plants_type', 'leaf_type', 'flower_type', 'fruit_type', 'habitat_type'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Plants  $plants
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Plants $plants)
+    public function update(Request $request, $id)
     {
-        //
+        $plant = Plants::find($id);
+        $plant->name = $request->name;
+        $plant->scientific_name = $request->scientific_name;
+        $plant->images = $request->images;
+        $plant->legend = $request->legend;
+        $plant->origin = $request->origin;
+        $plant->foliage_duration = $request->foliage_duration;
+
+        $plant->flowering_season =  $request->flowering_season_from . '-' . $request->flowering_season_to;
+
+        $plant->fruit_season = $request->fruit_season_from . '-' . $request->fruit_season_to;
+
+        $plant->height = $request->height;
+        $plant->native_area = $request->native_area;
+        $plant->longevity = $request->longevity;
+        $plant->characteristics = $request->characteristics;
+        $plant->curiosities = $request->curiosities;
+
+        $plant->save();
+
+        $plantt = Plants::find($id);
+
+        $plantt->types()->detach();
+
+        $plantt->types()->attach($request->plant_type);
+        $plantt->types()->attach($request->leaf_type);
+        $plantt->types()->attach($request->flower_type);
+        $plantt->types()->attach($request->fruit_type);
+        $plantt->types()->attach($request->habitat_type);
+
+        return redirect('plantas');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Plants  $plants
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Plants $plants)
+    public function destroy($id)
     {
-        //
+        $plant = Plants::find($id);
+        $plant->delete();
+
+        return redirect('plantas');
     }
 }

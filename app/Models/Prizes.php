@@ -2,31 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 use Carbon;
 
-class Prizes extends Authenticatable
+class Prizes extends Model
 {
-    use HasFactory;
     protected $table = 'prizes';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 
+        'name',
+        'image',
         'description'
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(\App\Models\User::class, 'users_has_prizes');
+    }
 
     public function getCreatedAtAttribute($date)
     {
@@ -37,5 +35,4 @@ class Prizes extends Authenticatable
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
     }
-
 }

@@ -7,80 +7,57 @@ use Illuminate\Http\Request;
 
 class PrizesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $prizes = Prizes::get();
+        $prizes = Prizes::paginate(10);
+
         return view('prizes.index', compact('prizes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('prizes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $prize = new Prizes;
+        $prize->name = $request->name;
+        $prize->image = $request->image;
+        $prize->description = $request->description;
+        $prize->save();
+
+        return redirect('premios');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Prizes  $prizes
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Prizes $prizes)
+    public function show($id)
     {
-        //
+        return redirect('premios');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Prizes  $prizes
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Prizes $prizes)
+    public function edit($id)
     {
-        //
+        $prize = Prizes::find($id);
+
+        return view('prizes.edit', compact('prize'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prizes  $prizes
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Prizes $prizes)
+    public function update(Request $request, $id)
     {
-        //
+        $prize = Prizes::find($id);
+        $prize->name = $request->name;
+        $prize->image = $request->image;
+        $prize->description = $request->description;
+        $prize->save();
+
+        return redirect('premios');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Prizes  $prizes
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Prizes $prizes)
+    public function destroy($id)
     {
-        //
+        $prize = Prizes::find($id);
+        $prize->delete();
+
+        return redirect('premios');
     }
 }

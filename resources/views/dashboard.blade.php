@@ -5,230 +5,161 @@
         </h2>
 
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-            
+
             <a href="/jogadores">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-blue-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-users w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Jogadores
-                        </p>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{App\Models\User::get()->count()}}
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jogadores</p>
                     </div>
                 </div>
             </a>
-            
+
+            <a href="/avatares">
+                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-blue-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-user w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Avatares</p>
+                    </div>
+                </div>
+            </a>
+
             <a href="/plantas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-orange-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-spa w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Plantas
-                        </p>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{App\Models\Plants::get()->count()}}
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Plantas</p>
                     </div>
                 </div>
             </a>
-            
-            <a href="/categorias-tipos-plantas">
-                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Categorias Tipos Plantas
-                        </p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="/tipos-plantas">
-                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                        Tipos Plantas
-                        </p>
-                    </div>
-                </div>
-            </a>
-            
+
             <a href="/coordenadas-plantas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-orange-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-map-marker-alt w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Coordenadas Plantas Encontradas
-                        </p>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{App\Models\User::get()->count()}}
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Coordenadas Plantas Encontradas</p>
                     </div>
                 </div>
             </a>
-            
-            <a href="/categorias-desafios">
+
+            <a href="/categorias-tipos-plantas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-pink-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Categorias Desafios
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Categorias Tipos Plantas</p>
                     </div>
                 </div>
             </a>
-            
-            <a href="/desafios">
+
+            <a href="/tipos-plantas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-indigo-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Desafios
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Tipos Plantas</p>
                     </div>
                 </div>
             </a>
-            
-            <a href="/premios">
-                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Prémios
-                        </p>
-                    </div>
-                </div>
-            </a>
-            
+
             <a href="/jornadas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-pink-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Jornadas
-                        </p>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{App\Models\Journeys::get()->count()}}
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Jornadas</p>
                     </div>
                 </div>
             </a>
-            
+
             <a href="/desafios-jornadas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-pink-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Desafios Jornadas
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Desafios Jornadas</p>
                     </div>
                 </div>
             </a>
-            
+
             <a href="/dicas">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-purple-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-question w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Dicas
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Dicas</p>
                     </div>
                 </div>
             </a>
-            
+
+            <a href="/premios">
+                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-purple-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-medal w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Prémios</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/categorias-desafios">
+                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-purple-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Categorias Desafios</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/desafios">
+                <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-purple-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-align-justify w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Desafios</p>
+                    </div>
+                </div>
+            </a>
+
             <a href="/glossario">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-yellow-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-search w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Glossário
-                        </p>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{App\Models\Glossary::get()->count()}}
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Glossário</p>
                     </div>
                 </div>
             </a>
-            
+
             <a href="/definicoes">
                 <div class="flex items-center p-4 bg-white hover:bg-grey-200 rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
-                            </path>
-                        </svg>
+                    <div class="mr-4 text-black bg-green-100 rounded-full dark:text-red-100 dark:bg-black flex justify-center items-center" style='width:44px!important;height:44px!important'>
+                        <i class="fas fa-cog w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Definições
-                        </p>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Definições</p>
                     </div>
                 </div>
             </a>
 
         </div>
-        
+
 </x-app-layout>
